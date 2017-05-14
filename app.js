@@ -15,7 +15,7 @@ var helmet = require('helmet');
 var app = express();
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://esenozcan:20061205knut@ds139781.mlab.com:39781/mdn_local_library';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://esenozcan:20061205knut@ds139781.mlab.com:39781/mdn_local_library';
 mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
